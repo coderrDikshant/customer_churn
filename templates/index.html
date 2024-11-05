@@ -1,0 +1,141 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churn Prediction Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="text">
+            Churn Prediction Model
+        </div>
+        <form action="{{ url_for('predict') }}" method="POST"> <!-- Update action for form submission -->
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="text" name="gender" required id="gender">
+                    <div class="underline"></div>
+                    <label for="gender">Gender</label>
+                </div>
+                <div class="input-data">
+                    <input type="text" name="SeniorCitizen" required id="senior-citizen">
+                    <div class="underline"></div>
+                    <label for="senior-citizen">Senior Citizen</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="text" name="Partner" required id="partner">
+                    <div class="underline"></div>
+                    <label for="partner">Partner</label>
+                </div>
+                <div class="input-data">
+                    <input type="text" name="Dependents" required id="dependents">
+                    <div class="underline"></div>
+                    <label for="dependents">Dependents</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="number" name="tenure" required id="tenure">
+                    <div class="underline"></div>
+                    <label for="tenure">Tenure</label>
+                </div>
+                <div class="input-data">
+                    <input type="text" name="PhoneService" required id="phone-service">
+                    <div class="underline"></div>
+                    <label for="phone-service">Phone Service</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="text" name="MultipleLines" required id="multiple-lines">
+                    <div class="underline"></div>
+                    <label for="multiple-lines">Multiple Lines</label>
+                </div>
+                <div class="input-data">
+                    <input type="text" name="InternetService" required id="internet-service">
+                    <div class="underline"></div>
+                    <label for="internet-service">Internet Service</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="text" name="OnlineSecurity" required id="online-security">
+                    <div class="underline"></div>
+                    <label for="online-security">Online Security</label>
+                </div>
+                <div class="input-data">
+                    <input type="text" name="OnlineBackup" required id="online-backup">
+                    <div class="underline"></div>
+                    <label for="online-backup">Online Backup</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="text" name="DeviceProtection" required id="device-protection">
+                    <div class="underline"></div>
+                    <label for="device-protection">Device Protection</label>
+                </div>
+                <div class="input-data">
+                    <input type="text" name="TechSupport" required id="tech-support">
+                    <div class="underline"></div>
+                    <label for="tech-support">Tech Support</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="text" name="StreamingTV" required id="streaming-tv">
+                    <div class="underline"></div>
+                    <label for="streaming-tv">Streaming TV</label>
+                </div>
+                <div class="input-data">
+                    <input type="text" name="StreamingMovies" required id="streaming-movies">
+                    <div class="underline"></div>
+                    <label for="streaming-movies">Streaming Movies</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="text" name="Contract" required id="contract">
+                    <div class="underline"></div>
+                    <label for="contract">Contract</label>
+                </div>
+                <div class="input-data">
+                    <input type="text" name="PaperlessBilling" required id="paperless-billing">
+                    <div class="underline"></div>
+                    <label for="paperless-billing">Paperless Billing</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="text" name="PaymentMethod" required id="payment-method">
+                    <div class="underline"></div>
+                    <label for="payment-method">Payment Method</label>
+                </div>
+                <div class="input-data">
+                    <input type="number" name="MonthlyCharges" step="0.01" required id="monthly-charges">
+                    <div class="underline"></div>
+                    <label for="monthly-charges">Monthly Charges</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="number" name="TotalCharges" step="0.01" required id="total-charges">
+                    <div class="underline"></div>
+                    <label for="total-charges">Total Charges</label>
+                </div>
+            </div>
+            <div class="form-row submit-button">
+                <div class="input-data">
+                    <input type="submit" value="Predict Churn" class="submit-button">
+                </div>
+            </div>
+        </form>
+        {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+    </div>
+</body>
+</html>
